@@ -20,6 +20,20 @@ __color-teller__ is a simple http service written in go that is configured to re
 
 ## Setup
 
+* Deploy color-teller and gateway
+```
+export AWS_ECR_PREFIX=<your ecr repo address, eg: 5555.dkr.ecr.us-west-2.amazonaws.com>
+export COLOR_GATEWAY_IMAGE="${AWS_ECR_PREFIX}/gateway"
+export COLOR_TELLER_IMAGE="${AWS_ECR_PREFIX}/colorteller"
+
+pushd ./src/colorteller
+./deploy.sh
+popd
+pushd ./src/gateway
+./deploy.sh
+popd
+```
+
 * Setup virtual-nodes, virtual-router and routes for color-app
 
 ```

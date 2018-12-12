@@ -3,6 +3,10 @@
 
 set -ex
 
+if [ ! -z "$AWS_PROFILE" ]; then
+    PROFILE_OPT="--profile ${AWS_PROFILE}"
+fi
+
 if [ -z $COLOR_GATEWAY_IMAGE ]; then
     echo "COLOR_GATEWAY_IMAGE environment variable is not set"
     exit 1
@@ -12,5 +16,5 @@ fi
 docker build -t $COLOR_GATEWAY_IMAGE .
 
 # push
-$(aws ecr get-login --no-include-email)
+$(aws ecr ${PROFILE_OPT} get-login --no-include-email)
 docker push $COLOR_GATEWAY_IMAGE

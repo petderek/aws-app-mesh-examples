@@ -20,8 +20,6 @@ export KEY_PAIR_NAME=<key-pair to access ec2 instances where apps are running>
 export ENVOY_IMAGE="111345817488.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-envoy:v1.8.0.2-beta"
 export CLUSTER_SIZE=<number of ec2 instances to spin up to join cluster
 export SERVICES_DOMAIN=<domain under which services will be discovered, e.g. "default.svc.cluster.local">
-export COLOR_GATEWAY_IMAGE=<image location for colorapp's gateway>
-export COLOR_TELLER_IMAGE=<image location for colorapp's teller>
 ```
 
 ## Infrastructure
